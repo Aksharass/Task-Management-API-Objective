@@ -1,91 +1,123 @@
 # NurtureHeal Task Management API
 
+A simple Task Management API built with Node.js, Express, and MongoDB.
+
+---
+
+## Table of Contents
+
+- [Objective](#objective)
+- [Tech Stack](#tech-stack)
+- [Setup Instructions](#setup-instructions)
+- [API Endpoints](#api-endpoints)
+- [Features](#features)
+- [Running Tests](#running-tests)
+- [Folder Structure](#folder-structure)
+- [Contributing](#contributing)
+
+---
+
 ## Objective
-Build a simple Task Management API to demonstrate backend development skills, database handling, and clean coding practices.
+
+Demonstrate backend development skills, database handling, and clean coding practices by building a Task Management API.
 
 ---
 
 ## Tech Stack
-- **Backend:** Node.js with Express
+
+- **Backend:** Node.js, Express
 - **Database:** MongoDB
 - **Testing:** Jest, Supertest
-- **Optional Frontend:** React + Axios + TailwindCSS (bonus)
-- **Environment variables:** dotenv
+- **Environment Variables:** dotenv
+- **Optional Frontend:** React, Axios, TailwindCSS
 
 ---
 
 ## Setup Instructions
 
-### 1. Clone the repository
-```bash
-git clone <your-repo-url>
-cd NurtureHeal-TaskAPI/backend
+1. **Clone the repository**
+    ```bash
+    git clone <your-repo-url>
+    cd NurtureHeal-TaskAPI/backend
+    ```
 
-### 2. Install backend dependencies
-npm install
+2. **Install dependencies**
+    ```bash
+    npm install
+    ```
 
-### 3. Create a .env file in the backend folder
+3. **Create a `.env` file in the backend folder**
+    ```
     PORT=5000
-    MONGO_URI=mongodb+srv://Akshara:ak123456@cluster0.ydd2zmg.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
-    MONGO_URI_TEST=mongodb+srv://Akshara:ak123456@cluster0.ydd2zmg.mongodb.net/taskmanager_test?retryWrites=true&w=majority&appName=Cluster0
+    MONGO_URI=<your-mongodb-uri>
+    MONGO_URI_TEST=<your-mongodb-test-uri>
+    ```
 
-### 4. Start the backend server
-npm start
-Server will run at: http://localhost:5000
+4. **Start the backend server**
+    ```bash
+    npm start
+    ```
+    The server will run at: [http://localhost:5000](http://localhost:5000)
 
-### 5. Run unit tests
-npm test
-Tests cover Users and Tasks endpoints.
+5. **Run unit tests**
+    ```bash
+    npm test
+    ```
 
-### API Endpoints
+---
+
+## API Endpoints
+
 ### Users
-Method	Endpoint	Description	Body
-POST	/api/users	Create a new user	{ "name": "User Name", "email": "user@example.com" }
-GET	/api/users	List all users	-
-GET	/api/users/:id	Get user by ID	-
-PUT	/api/users/:id	Update user details	{ "name": "New Name", "email": "new@example.com" }
-DELETE	/api/users/:id	Delete a user	-
+
+| Method | Endpoint         | Description         | Body                                      |
+|--------|------------------|--------------------|-------------------------------------------|
+| POST   | `/api/users`     | Create a new user  | `{ "name": "User Name", "email": "user@example.com" }` |
+| GET    | `/api/users`     | List all users     | -                                         |
+| GET    | `/api/users/:id` | Get user by ID     | -                                         |
+| PUT    | `/api/users/:id` | Update user        | `{ "name": "New Name", "email": "new@example.com" }` |
+| DELETE | `/api/users/:id` | Delete a user      | -                                         |
+
 ### Tasks
-Method	Endpoint	Description	Body / Query Parameters
-POST	/api/tasks	Create a new task	{ "title": "Task Title", "description": "Task Description", "status": "pending", "deadline": "YYYY-MM-DD", "assignedUser": "userId" }
-GET	/api/tasks	List all tasks	Optional query: status, deadline, skip, limit
-PUT	/api/tasks/:id	Update task details	{ "title": "New Title", "description": "New Description", "status": "completed", "deadline": "YYYY-MM-DD" }
-DELETE	/api/tasks/:id	Delete a task	-
-Features Implemented
 
-Users CRUD operations
+| Method | Endpoint         | Description         | Body / Query Parameters                   |
+|--------|------------------|--------------------|-------------------------------------------|
+| POST   | `/api/tasks`     | Create a new task  | `{ "title": "Task Title", "description": "Task Description", "status": "pending", "deadline": "YYYY-MM-DD", "assignedUser": "userId" }` |
+| GET    | `/api/tasks`     | List all tasks     | Optional query: `status`, `deadline`, `skip`, `limit` |
+| PUT    | `/api/tasks/:id` | Update task        | `{ "title": "New Title", "description": "New Description", "status": "completed", "deadline": "YYYY-MM-DD" }` |
+| DELETE | `/api/tasks/:id` | Delete a task      | -                                         |
 
-Tasks CRUD operations
+---
 
-Task filtering by status and deadline
+## Features
 
-Pagination (skip, limit) for task listing
+- Users CRUD operations
+- Tasks CRUD operations
+- Task filtering by status and deadline
+- Pagination for task listing
+- Centralized error handling
+- Unit tests for Users and Tasks endpoints
 
-Error handling with central middleware
+---
 
-Unit tests for Users and Tasks endpoints
+## Running Tests
 
-Bonus Features
+All tests are in the `tests/` folder.
 
-
-Containerization using Docker (optional)
-
-Running Tests
-
-All tests are in the tests/ folder.
-
-Run all tests:
-
+To run all tests:
+```bash
 npm test
-
+```
 
 Tests cover:
+- User creation, retrieval, update, deletion
+- Task creation, retrieval, update, deletion
 
-User creation, retrieval, update, deletion
+---
 
-Task creation, retrieval, update, deletion
+## Folder Structure
 
-Folder Structure
+```
 backend/
 ├── controllers/
 │   ├── taskController.js
@@ -106,22 +138,18 @@ backend/
 ├── server.js
 ├── package.json
 └── README.md
+```
 
-How to Contribute
+---
 
-Fork the repository
+## Contributing
 
-Clone locally
-
-Install dependencies and run tests
-
-Make your changes
-
-Commit and push changes
-
-Open a pull request
-
-
+1. Fork the repository
+2. Clone locally
+3. Install dependencies and run tests
+4. Make your changes
+5. Commit and push changes
+6. Open a pull request
 
 ---
 
